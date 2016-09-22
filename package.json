@@ -1,0 +1,36 @@
+{
+  "name": "smartchok",
+  "version": "1.0.0",
+  "description": "smart wrapper for chokidar",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "(npm run prepareTest && npmts)",
+    "prepareTest":"(rm -f ./test/assets/hi.txt)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pushrocks/smartchok.git"
+  },
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/pushrocks/smartchok/issues"
+  },
+  "homepage": "https://gitlab.com/pushrocks/smartchok#README",
+  "dependencies": {
+    "@types/chokidar": "^1.4.29",
+    "@types/q": "0.0.31",
+    "chokidar": "^1.6.0",
+    "lik": "^1.0.20",
+    "q": "^1.4.1",
+    "rxjs": "^5.0.0-beta.12",
+    "typings-global": "^1.0.14"
+  },
+  "devDependencies": {
+    "@types/should": "^8.1.30",
+    "should": "^11.1.0",
+    "smartfile": "^4.0.20",
+    "typings-test": "^1.0.3"
+  }
+}

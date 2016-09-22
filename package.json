@@ -1,12 +1,12 @@
 {
   "name": "smartchok",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "smart wrapper for chokidar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "test": "(npm run prepareTest && npmts)",
-    "prepareTest":"(rm -f ./test/assets/hi.txt)"
+    "prepareTest": "(rm -f ./test/assets/hi.txt)"
   },
   "repository": {
     "type": "git",

@@ -7,7 +7,7 @@ export type TFsEvent = 'add' | 'addDir' | 'change' | 'error' | 'unlink' | 'unlin
 export class Smartchok {
     watchStringmap = new Stringmap()
     chokidarOptions: plugins.chokidar.WatchOptions
-    status: TSmartchokStatus
+    status: TSmartchokStatus = 'idle'
     private watcher
     private watchingDeferred = plugins.q.defer<void>() // used to run things when watcher is initialized
     private eventObservablemap = new plugins.lik.Observablemap() // register one observable per event
@@ -22,9 +22,12 @@ export class Smartchok {
      */
     add(pathArrayArg: string[]) {
         this.watchStringmap.addStringArray(pathArrayArg)
-        this.watchingDeferred.promise.then(() => {
-            this.watcher.add(pathArrayArg)
-        })
+        if (this.status !== 'idle') {
+            this.watchingDeferred.promise.then(() => {
+                this.watcher.add(pathArrayArg)
+            })
+        }
+
     }
 
     /**

@@ -14,7 +14,10 @@ describe('smartchok',function(){
     })
     it('should add some files to watch and start',function(done){
         testSmartchok.add(['./test/assets/**/*.txt'])
-        testSmartchok.start().then(() => { done() }).catch(err => { console.log(err) })
+        testSmartchok.start().then(() => {
+            testSmartchok.add(['./test/assets/**/*.md'])
+            done()
+        }).catch(err => { console.log(err) })
     })
     it('should get an observable for a certain event',function(done){
         testSmartchok.getObservableFor('add').then((observableArg) => {

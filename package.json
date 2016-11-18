@@ -20,17 +20,17 @@
   "homepage": "https://gitlab.com/pushrocks/smartchok#README",
   "dependencies": {
     "@types/chokidar": "^1.4.29",
-    "@types/q": "0.0.31",
-    "chokidar": "^1.6.0",
-    "lik": "^1.0.20",
+    "@types/q": "x.x.x",
+    "chokidar": "^1.6.1",
+    "lik": "^1.0.24",
     "q": "^1.4.1",
-    "rxjs": "^5.0.0-beta.12",
+    "rxjs": "^5.0.0-rc.3",
     "typings-global": "^1.0.14"
   },
   "devDependencies": {
     "@types/should": "^8.1.30",
-    "should": "^11.1.0",
-    "smartfile": "^4.0.20",
+    "should": "^11.1.1",
+    "smartfile": "^4.1.0",
     "typings-test": "^1.0.3"
   }
 }

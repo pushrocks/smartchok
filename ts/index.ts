@@ -4,6 +4,9 @@ import { Stringmap } from 'lik'
 export type TSmartchokStatus = 'idle' | 'starting' | 'watching'
 export type TFsEvent = 'add' | 'addDir' | 'change' | 'error' | 'unlink' | 'unlinkDir' | 'ready' | 'raw'
 
+/**
+ * Smartchok allows easy wathcing of files
+ */
 export class Smartchok {
     watchStringmap = new Stringmap()
     chokidarOptions: plugins.chokidar.WatchOptions
@@ -12,6 +15,9 @@ export class Smartchok {
     private watchingDeferred = plugins.q.defer<void>() // used to run things when watcher is initialized
     private eventObservablemap = new plugins.lik.Observablemap() // register one observable per event
 
+    /**
+     * constructor of class smartchok
+     */
     constructor(watchArrayArg: string[], optionsArg: plugins.chokidar.WatchOptions = {}) {
         this.watchStringmap.addStringArray(watchArrayArg)
         this.chokidarOptions = optionsArg

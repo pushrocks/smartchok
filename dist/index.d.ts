@@ -4,6 +4,9 @@ import * as plugins from './smartchok.plugins';
 import { Stringmap } from 'lik';
 export declare type TSmartchokStatus = 'idle' | 'starting' | 'watching';
 export declare type TFsEvent = 'add' | 'addDir' | 'change' | 'error' | 'unlink' | 'unlinkDir' | 'ready' | 'raw';
+/**
+ * Smartchok allows easy wathcing of files
+ */
 export declare class Smartchok {
     watchStringmap: Stringmap;
     chokidarOptions: plugins.chokidar.WatchOptions;
@@ -11,6 +14,9 @@ export declare class Smartchok {
     private watcher;
     private watchingDeferred;
     private eventObservablemap;
+    /**
+     * constructor of class smartchok
+     */
     constructor(watchArrayArg: string[], optionsArg?: plugins.chokidar.WatchOptions);
     /**
      * adds files to the list of watched files

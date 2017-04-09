@@ -1,38 +1,43 @@
-import 'typings-test'
-import * as should from 'should'
+import { tap, expect } from 'tapbundle'
 import * as smartfile from 'smartfile'
+import * as smartq from 'smartq'
 import * as rx from 'rxjs/Rx'
+
+// the module to test
 import * as smartchok from '../dist/index'
 
-describe('smartchok',function(){
-    let testSmartchok: smartchok.Smartchok
-    let testAddObservable: rx.Observable<any>
-    let testSubscription: rx.Subscription
-    it('should create a new instance',function(){
-        testSmartchok = new smartchok.Smartchok([])
-        should(testSmartchok).be.instanceof(smartchok.Smartchok)
-    })
-    it('should add some files to watch and start',function(done){
-        testSmartchok.add(['./test/assets/**/*.txt'])
-        testSmartchok.start().then(() => {
-            testSmartchok.add(['./test/assets/**/*.md'])
-            done()
-        }).catch(err => { console.log(err) })
-    })
-    it('should get an observable for a certain event',function(done){
-        testSmartchok.getObservableFor('add').then((observableArg) => {
-            testAddObservable = observableArg
-            done()
-        }).catch(err => { console.log(err) })
-    })
-    it('should register an add operation',function(done){
-        this.timeout(5000)
-        testSubscription = testAddObservable.subscribe(x => {
-            done()
-        })
-        smartfile.memory.toFs('HI','./test/assets/hi.txt')
-    })
-    it('should stop the watch process',function() {
-        testSmartchok.stop()
-    })
-})
+let testSmartchok: smartchok.Smartchok
+let testAddObservable: rx.Observable<any>
+let testSubscription: rx.Subscription
+tap.test('should create a new instance', async () => {
+  testSmartchok = new smartchok.Smartchok([])
+  return expect(testSmartchok).to.be.instanceof(smartchok.Smartchok)
+}).catch(tap.threw)
+
+tap.test('should add some files to watch and start', async () => {
+  testSmartchok.add([ './test/assets/**/*.txt' ])
+  let localPromise = testSmartchok.start().then(async () => {
+    testSmartchok.add([ './test/assets/**/*.md' ])
+  })
+  return await expect(localPromise).to.eventually.be.fulfilled
+}).catch(tap.threw)
+
+tap.test('should get an observable for a certain event', async () => {
+  let localPromise = testSmartchok.getObservableFor('add').then(async (observableArg) => {
+    testAddObservable = observableArg
+  })
+  return await expect(localPromise).to.eventually.be.fulfilled
+}).catch(tap.threw)
+
+tap.test('should register an add operation', async () => {
+  let testDeferred = smartq.defer()
+  testSubscription = testAddObservable.subscribe(x => {
+    testDeferred.resolve()
+  })
+  smartfile.memory.toFs('HI', './test/assets/hi.txt')
+  return await expect(testDeferred.promise).to.eventually.be.fulfilled
+}).catch(tap.threw)
+
+tap.test('should stop the watch process', async () => {
+  testSmartchok.stop()
+}).catch(tap.threw)

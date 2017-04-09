@@ -1,4 +1,3 @@
-/// <reference types="chokidar" />
 /// <reference types="q" />
 import * as plugins from './smartchok.plugins';
 import { Stringmap } from 'lik';

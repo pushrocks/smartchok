@@ -1,4 +1,3 @@
-/// <reference types="q" />
 import * as plugins from './smartchok.plugins';
 import { Stringmap } from 'lik';
 export declare type TSmartchokStatus = 'idle' | 'starting' | 'watching';
@@ -28,12 +27,12 @@ export declare class Smartchok {
     /**
      * gets an observable for a certain event
      */
-    getObservableFor(fsEvent: TFsEvent): plugins.q.Promise<plugins.rx.Observable<any>>;
+    getObservableFor(fsEvent: TFsEvent): Promise<plugins.rx.Observable<any>>;
     /**
      * starts the watcher
      * @returns Promise<void>
      */
-    start(): plugins.q.Promise<void>;
+    start(): Promise<void>;
     /**
      * stop the watcher process if watching
      */

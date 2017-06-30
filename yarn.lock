@@ -51,7 +51,7 @@
   version "0.0.27"
   resolved "https://registry.yarnpkg.com/@types/promises-a-plus/-/promises-a-plus-0.0.27.tgz#c64651134614c84b8f5d7114ce8901d36a609780"
 
-"@types/q@1.x.x", "@types/q@x.x.x":
+"@types/q@1.x.x":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.0.1.tgz#dbccb01bd8f0f801a12a4604c7d7af59bb02ae2f"
 

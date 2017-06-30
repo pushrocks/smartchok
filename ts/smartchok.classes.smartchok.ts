@@ -12,7 +12,7 @@ export class Smartchok {
   chokidarOptions: plugins.chokidar.WatchOptions
   status: TSmartchokStatus = 'idle'
   private watcher
-  private watchingDeferred = plugins.q.defer<void>() // used to run things when watcher is initialized
+  private watchingDeferred = plugins.smartq.defer<void>() // used to run things when watcher is initialized
   private eventObservablemap = new plugins.lik.Observablemap() // register one observable per event
 
   /**
@@ -40,8 +40,8 @@ export class Smartchok {
   /**
    * gets an observable for a certain event
    */
-  getObservableFor (fsEvent: TFsEvent): plugins.q.Promise<plugins.rx.Observable<any>> {
-    let done = plugins.q.defer<plugins.rx.Observable<any>>()
+  getObservableFor (fsEvent: TFsEvent): Promise<plugins.rx.Observable<any>> {
+    let done = plugins.smartq.defer<plugins.rx.Observable<any>>()
     this.watchingDeferred.promise.then(() => {
       let eventObservable = this.eventObservablemap.getObservableForEmitterEvent(this.watcher, fsEvent)
       done.resolve(eventObservable)
@@ -53,8 +53,8 @@ export class Smartchok {
    * starts the watcher
    * @returns Promise<void>
    */
-  start(): plugins.q.Promise<void> {
-    let done = plugins.q.defer<void>()
+  start(): Promise<void> {
+    let done = plugins.smartq.defer<void>()
     this.status = 'starting'
     this.watcher = plugins.chokidar.watch(this.watchStringmap.getStringArray(), this.chokidarOptions)
     this.watcher.on('ready', () => {

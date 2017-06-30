@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(npm run prepareTest && npmts)",
+    "test": "(yarn run prepareTest && npmts)",
     "prepareTest": "(rm -f ./test/assets/hi.txt)"
   },
   "repository": {
@@ -20,10 +20,8 @@
   "homepage": "https://gitlab.com/pushrocks/smartchok#README",
   "dependencies": {
     "@types/chokidar": "^1.7.0",
-    "@types/q": "x.x.x",
     "chokidar": "^1.7.0",
     "lik": "^1.0.32",
-    "q": "^1.5.0",
     "rxjs": "^5.4.1",
     "smartipc": "^1.0.9",
     "smartq": "^1.1.1",

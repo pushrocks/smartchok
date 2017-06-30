@@ -1,10 +1,11 @@
 import { tap, expect } from 'tapbundle'
 import * as smartfile from 'smartfile'
 import * as smartq from 'smartq'
-import * as rx from 'rxjs/Rx'
 
 // the module to test
 import * as smartchok from '../dist/index'
+
+import * as rx from 'rxjs/Rx'
 
 let testSmartchok: smartchok.Smartchok
 let testAddObservable: rx.Observable<any>

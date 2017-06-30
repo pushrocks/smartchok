@@ -1,6 +1,6 @@
 {
   "name": "smartchok",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "smart wrapper for chokidar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

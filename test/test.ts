@@ -41,3 +41,5 @@ tap.test('should register an add operation', async () => {
 tap.test('should stop the watch process', async () => {
   testSmartchok.stop()
 }).catch(tap.threw)
+
+tap.start()

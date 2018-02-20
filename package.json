@@ -20,7 +20,7 @@
   "homepage": "https://gitlab.com/pushrocks/smartchok#README",
   "dependencies": {
     "@types/chokidar": "^1.7.0",
-    "chokidar": "^1.7.0",
+    "chokidar": "^2.0.0",
     "lik": "^1.0.32",
     "rxjs": "^5.4.1",
     "smartipc": "^1.0.9",

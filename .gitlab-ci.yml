@@ -29,7 +29,6 @@ security:
     - npmci command snyk test
   tags:
   - docker
-  allow_failure: true
 
 testLEGACY:
   stage: test

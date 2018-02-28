@@ -1,12 +1,11 @@
 import * as plugins from './smartchok.plugins';
-import { Stringmap } from 'lik';
 export declare type TSmartchokStatus = 'idle' | 'starting' | 'watching';
 export declare type TFsEvent = 'add' | 'addDir' | 'change' | 'error' | 'unlink' | 'unlinkDir' | 'ready' | 'raw';
 /**
  * Smartchok allows easy wathcing of files
  */
 export declare class Smartchok {
-    watchStringmap: Stringmap;
+    watchStringmap: plugins.lik.Stringmap;
     chokidarOptions: plugins.chokidar.WatchOptions;
     status: TSmartchokStatus;
     private watcher;
@@ -27,7 +26,7 @@ export declare class Smartchok {
     /**
      * gets an observable for a certain event
      */
-    getObservableFor(fsEvent: TFsEvent): Promise<plugins.rx.Observable<any>>;
+    getObservableFor(fsEvent: TFsEvent): Promise<plugins.smartrx.rxjs.Observable<any>>;
     /**
      * starts the watcher
      * @returns Promise<void>

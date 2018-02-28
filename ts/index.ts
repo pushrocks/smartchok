@@ -1,1 +1,1 @@
-export * from './smartchok.classes.smartchok'
+export * from './smartchok.classes.smartchok';

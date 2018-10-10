@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartchok",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": false,
   "description": "smart wrapper for chokidar",
   "main": "dist/index.js",

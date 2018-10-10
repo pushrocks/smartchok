@@ -1,10 +1,7 @@
 {
-  "npmts": {
-    "mode": "default"
-  },
   "npmci": {
     "npmGlobalTools": [
-      "npmts"
-    ]
+    ],
+    "npmAccessLevel": "public"
   }
 }

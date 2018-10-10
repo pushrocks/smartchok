@@ -1,12 +1,14 @@
 {
-  "name": "smartchok",
+  "name": "@pushrocks/smartchok",
   "version": "1.0.14",
+  "private": false,
   "description": "smart wrapper for chokidar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(yarn run prepareTest && npmts)",
-    "prepareTest": "(rm -f ./test/assets/hi.txt)"
+    "test": "(npm run prepareTest && tstest test/)",
+    "prepareTest": "(rm -f ./test/assets/hi.txt)",
+    "build": "echo \"Not needed for now\""
   },
   "repository": {
     "type": "git",
@@ -19,16 +21,19 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartchok#README",
   "dependencies": {
+    "@pushrocks/lik": "^3.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/smartrx": "^2.0.1",
+    "@pushrocks/smartspawn": "^2.0.2",
     "@types/chokidar": "^1.7.5",
-    "chokidar": "^2.0.2",
-    "lik": "^2.0.5",
-    "smartipc": "^1.0.11",
-    "smartq": "^1.1.6",
-    "smartrx": "^1.0.5"
+    "chokidar": "^2.0.4"
   },
   "devDependencies": {
-    "@types/node": "^9.4.6",
-    "smartfile": "^4.2.28",
-    "tapbundle": "^2.0.0"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.12",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/smartfile": "^6.0.8",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.11.6"
   }
 }

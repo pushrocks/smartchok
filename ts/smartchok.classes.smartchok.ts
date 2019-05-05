@@ -20,7 +20,7 @@ export class Smartchok {
   watchStringmap = new Stringmap();
   chokidarOptions: plugins.chokidar.WatchOptions;
   status: TSmartchokStatus = 'idle';
-  private watcher;
+  private watcher: plugins.chokidar.FSWatcher;
   private watchingDeferred = plugins.smartpromise.defer<void>(); // used to run things when watcher is initialized
   private eventObservablemap = new plugins.smartrx.Observablemap(); // register one observable per event
 

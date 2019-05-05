@@ -8,7 +8,7 @@
   "scripts": {
     "test": "(npm run prepareTest && tstest test/)",
     "prepareTest": "(rm -f ./test/assets/hi.txt)",
-    "build": "echo \"Not needed for now\""
+    "build": "tsbuild"
   },
   "repository": {
     "type": "git",

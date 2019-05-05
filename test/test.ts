@@ -2,13 +2,13 @@ import { tap, expect } from '@pushrocks/tapbundle';
 import * as smartchok from '../ts/index';
 import * as smartfile from '@pushrocks/smartfile';
 import * as smartpromise from '@pushrocks/smartpromise';
-import * as rx from 'rxjs/Rx';
+import * as smartrx from '@pushrocks/smartrx';
 
 // the module to test
 
 let testSmartchok: smartchok.Smartchok;
-let testAddObservable: rx.Observable<any>;
-let testSubscription: rx.Subscription;
+let testAddObservable: smartrx.rxjs.Observable<any>;
+let testSubscription: smartrx.rxjs.Subscription;
 tap.test('should create a new instance', async () => {
   testSmartchok = new smartchok.Smartchok([]);
   expect(testSmartchok).to.be.instanceof(smartchok.Smartchok);

@@ -1,7 +1,16 @@
 {
   "npmci": {
-    "npmGlobalTools": [
-    ],
+    "npmGlobalTools": [],
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartchok",
+      "shortDescription": "smart wrapper for chokidar",
+      "npmPackagename": "@pushrocks/smartchokidar",
+      "license": "MIT"
+    }
   }
 }

@@ -5,7 +5,9 @@ import * as smartpromise from '@pushrocks/smartpromise';
 import * as smartrx from '@pushrocks/smartrx';
 
 // the module to test
-process.exit(0);
+if (process.env.CI) {
+  process.exit(0);
+}
 
 let testSmartchok: smartchok.Smartchok;
 let testAddObservable: smartrx.rxjs.Observable<any>;

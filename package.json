@@ -26,14 +26,24 @@
     "@pushrocks/smartrx": "^2.0.3",
     "@pushrocks/smartspawn": "^2.0.4",
     "@types/chokidar": "^2.1.3",
-    "chokidar": "^3.0.0"
+    "chokidar": "^3.0.1"
   },
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.11",
     "@gitzone/tsrun": "^1.2.6",
-    "@gitzone/tstest": "^1.0.20",
+    "@gitzone/tstest": "^1.0.24",
     "@pushrocks/smartfile": "^7.0.2",
     "@pushrocks/tapbundle": "^3.0.9",
-    "@types/node": "^12.0.0"
-  }
+    "@types/node": "^12.0.4"
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

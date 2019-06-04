@@ -82,7 +82,7 @@ codequality:
   script:
     - npmci command npm install -g tslint typescript
     - npmci npm install
-    - npmci command tslint -c tslint.json ./ts/**/*.ts
+    - npmci command "tslint -c tslint.json ./ts/**/*.ts"
   tags:
   - docker
   - priv

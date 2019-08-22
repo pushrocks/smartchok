@@ -23,7 +23,7 @@ Use TypeScript for best in class instellisense.
 ```javascript
 import { Smartchok } from 'smartchok';
 
-let mySmartChok = new Smartchok(['some/path/**/*.any', '/absolute/*.js'], chokidarOptions);
+const mySmartChok = new Smartchok(['some/path/**/*.any', '/absolute/*.js'], chokidarOptions);
 
 mySmartChok.add(['/some/**/*.any']); // add files
 

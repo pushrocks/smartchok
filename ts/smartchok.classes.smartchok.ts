@@ -17,9 +17,9 @@ export type TFsEvent =
  * Smartchok allows easy wathcing of files
  */
 export class Smartchok {
-  watchStringmap = new Stringmap();
-  chokidarOptions: plugins.chokidar.WatchOptions;
-  status: TSmartchokStatus = 'idle';
+  public watchStringmap = new Stringmap();
+  public chokidarOptions: plugins.chokidar.WatchOptions;
+  public status: TSmartchokStatus = 'idle';
   private watcher: plugins.chokidar.FSWatcher;
   private watchingDeferred = plugins.smartpromise.defer<void>(); // used to run things when watcher is initialized
   private eventObservablemap = new plugins.smartrx.Observablemap(); // register one observable per event
@@ -35,24 +35,24 @@ export class Smartchok {
   /**
    * adds files to the list of watched files
    */
-  add(pathArrayArg: string[]) {
+  public add(pathArrayArg: string[]) {
     this.watchStringmap.addStringArray(pathArrayArg);
   }
 
   /**
    * removes files from the list of watched files
    */
-  remove(pathArg: string) {
+  public remove(pathArg: string) {
     this.watchStringmap.removeString(pathArg);
   }
 
   /**
    * gets an observable for a certain event
    */
-  getObservableFor(fsEvent: TFsEvent): Promise<plugins.smartrx.rxjs.Observable<any>> {
-    let done = plugins.smartpromise.defer<plugins.smartrx.rxjs.Observable<any>>();
+  public getObservableFor(fsEvent: TFsEvent): Promise<plugins.smartrx.rxjs.Observable<any>> {
+    const done = plugins.smartpromise.defer<plugins.smartrx.rxjs.Observable<any>>();
     this.watchingDeferred.promise.then(() => {
-      let eventObservable = this.eventObservablemap.getObservableForEmitterEvent(
+      const eventObservable = this.eventObservablemap.getObservableForEmitterEvent(
         this.watcher,
         fsEvent
       );
@@ -65,8 +65,8 @@ export class Smartchok {
    * starts the watcher
    * @returns Promise<void>
    */
-  start(): Promise<void> {
-    let done = plugins.smartpromise.defer<void>();
+  public start(): Promise<void> {
+    const done = plugins.smartpromise.defer<void>();
     this.status = 'starting';
     this.watcher = plugins.chokidar.watch(
       this.watchStringmap.getStringArray(),
@@ -83,8 +83,8 @@ export class Smartchok {
   /**
    * stop the watcher process if watching
    */
-  stop() {
-    let closeWatcher = () => {
+  public stop() {
+    const closeWatcher = () => {
       this.watcher.close();
     };
     if (this.status === 'watching') {
